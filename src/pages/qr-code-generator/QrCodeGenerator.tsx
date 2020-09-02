@@ -1,7 +1,11 @@
 import React from 'react';
 
+import { Header } from '../../components/header/Header';
+
 export const QrCodeGenerator = () => {
     return (
-        <h1>QrCodeGenerator</h1>
+        <div className="qrCodeGenerator">
+            <Header />
+        </div>
     );
 }
