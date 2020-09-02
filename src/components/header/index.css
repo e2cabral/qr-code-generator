@@ -1,0 +1,26 @@
+.header {
+    width: 100vw;
+    height: 10vh;
+    background-color: #5d077a;
+    color: #fdfdfd;
+    padding: 1.4rem 2.5rem;
+    box-sizing: border-box;
+}
+
+.icofont-qr-code {
+    font-size: 3rem;
+}
+
+.header, .header__left, .header__right, p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo > * {
+    padding: 0 .35rem;
+}
+
+.header__logoText {
+    font-size: 1.6rem;
+}
