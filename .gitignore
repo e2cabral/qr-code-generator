@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+/icofont
 /.pnp
 .pnp.js
+icofont.zip
 
 # testing
 /coverage
