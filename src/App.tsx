@@ -1,10 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import { Router } from './routes/Router';
+
+import './assets/css/global.css';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Router />
     </div>
   );
 }
