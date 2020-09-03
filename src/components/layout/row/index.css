@@ -1,0 +1,14 @@
+.row {
+    max-width: 80%;
+    display: flex;
+}
+
+.row > * {
+    font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 760px) {
+    .row {
+        flex-wrap: wrap;
+    }
+}
