@@ -1,31 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Header } from '../../components/header/Header';
 import { Container } from '../../components/layout/container/Container';
 import { Row } from '../../components/layout/row/Row';
 import { Column } from '../../components/layout/column/Column';
+import { QrCode } from '../../components/qr-code/QrCode';
+
+import { LevelEnum } from '../../models/enums/LevelEnum';
 
 export const QrCodeGenerator = () => {
+    const [value, setValue] = useState<string> ('text');
+    const [bgColor, setBgColor] = useState<string> ('#ffffff');
+    const [fgColor, setFgColor] = useState<string> ('#000000');
+    const [size, setSize] = useState<number> (400);
+    const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'> ('H');
+
     return (
         <div className="qrCodeGenerator">
             <Header />
             <Container>
                 <Row>
                     <Column>
-                        <p>
-                            Mussum Ipsum, cacilds vidis litro abertis. Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Quem num gosta di mim que vai caçá sua turmis! Atirei o pau no gatis, per gatis num morreus. Quem manda na minha terra sou euzis!
-                            Sapien in monti palavris qui num significa nadis i pareci latim. Paisis, filhis, espiritis santis. Casamentiss faiz malandris se pirulitá. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.
-                            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.
-                            Si num tem leite então bota uma pinga aí cumpadi! Interagi no mé, cursus quis, vehicula ac nisi. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Cevadis im ampola pa arma uma pindureta. 
-                        </p>
+                        <QrCode
+                            value={value}
+                            bgColor={bgColor}
+                            fgColor={fgColor}
+                            size={size}
+                            level={level}
+                        />
                     </Column>
                     <Column>
-                        <p>
-                            Mussum Ipsum, cacilds vidis litro abertis. Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Quem num gosta di mim que vai caçá sua turmis! Atirei o pau no gatis, per gatis num morreus. Quem manda na minha terra sou euzis!
-                            Sapien in monti palavris qui num significa nadis i pareci latim. Paisis, filhis, espiritis santis. Casamentiss faiz malandris se pirulitá. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.
-                            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.
-                            Si num tem leite então bota uma pinga aí cumpadi! Interagi no mé, cursus quis, vehicula ac nisi. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Cevadis im ampola pa arma uma pindureta. 
-                        </p>
+                        <div>
+                            <label htmlFor="value">Digite o link que deseja inserir:</label>
+                            <input
+                                id="value"
+                                type="text"
+                                name="value"
+                                onChange={(event) => setValue(event.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="bgColor">Selecione a cor de fundo:</label>
+                            <br/>
+                            <input
+                                id="bgColor"
+                                type="color"
+                                name="bgColor"
+                                onChange={(event) => setBgColor(event.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="fgColor">Selecione a cor dos gráficos:</label>
+                            <br/>
+                            <input
+                                id="fgColor"
+                                type="color"
+                                name="fgColor"
+                                onChange={(event) => setFgColor(event.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="level">Selecione a densidade dos gráficos:</label>
+                            <br/>
+                            <select name="level" id="level" onChange={(event) => setLevel(event.target.value as 'L' | 'M' | 'Q' | 'H')}>
+                                { LevelEnum.getAll().map((l) => <option value={l}>{ l }</option>) }
+                            </select>
+                        </div>
                     </Column>
                 </Row>
             </Container>
