@@ -1,3 +1,35 @@
 :root {
     font-size: 60%;
 }
+
+input[type="text"], select {
+    width: 35rem;
+    height: 2.5rem;
+    border: 1px solid #dfdfdf;
+    padding: .8rem 2.5rem;
+}
+
+select {
+    width: 40.35rem;
+    height: 4.2rem;
+    border: 1px solid #dfdfdf;
+    padding: .8rem 2.5rem;
+}
+
+input[type="color"] {
+    width: 40.35rem;
+    height: 4.2rem;
+    /* border: 1px solid #dfdfdf; */
+    /* padding: .8rem 2.5rem; */
+}
+
+label {
+    font-family: 'Grandstander', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3a3a3a;
+}
+
+.colorpick-eyedropper-input-trigger {
+    display: none;
+}
