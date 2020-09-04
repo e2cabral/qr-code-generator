@@ -33,3 +33,7 @@ label {
 .colorpick-eyedropper-input-trigger {
     display: none;
 }
+
+.code-generated {
+    font-size: 1rem;
+}
