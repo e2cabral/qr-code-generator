@@ -21,6 +21,7 @@ export const QrCode: React.FC<Props> = (props) => {
                 fgColor={props.fgColor}
                 size={props.size}
                 level={props.level}
+                renderAs="svg"
             />
         </div>
     );
