@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Header } from '../../components/header/Header';
 import { Container } from '../../components/layout/container/Container';
@@ -14,6 +14,22 @@ export const QrCodeGenerator = () => {
     const [fgColor, setFgColor] = useState<string> ('#000000');
     const [size, setSize] = useState<number> (400);
     const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'> ('H');
+
+    let qrCodeString = '';
+
+    const renderHtml = () => {
+        if (document.getElementsByTagName('svg')[0] === undefined) {
+            return '<h1>Nothing to render</h1>'
+        } else {
+
+            qrCodeString = document.getElementsByTagName('svg')[0].outerHTML;
+            return qrCodeString;
+        }
+    }
+
+    useEffect(() => {
+
+    }, [qrCodeString]);
 
     return (
         <div className="qrCodeGenerator">
@@ -65,6 +81,10 @@ export const QrCodeGenerator = () => {
                             <select name="level" id="level" onChange={(event) => setLevel(event.target.value as 'L' | 'M' | 'Q' | 'H')}>
                                 { LevelEnum.getAll().map((l) => <option value={l}>{ l }</option>) }
                             </select>
+                        </div>
+                        <div>
+                            <br/>
+                            <textarea name="code-format" id="code-format" className="code-generated" cols={61} rows={19} value={renderHtml()} readOnly={true}></textarea>
                         </div>
                     </Column>
                 </Row>
